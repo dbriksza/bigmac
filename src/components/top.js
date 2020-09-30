@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchItems, setInput } from "../actions/index";
+import { codes } from "../assets/countryCodes.js";
 
 const Top = (props) => {
   const [inputField, setInputField] = useState(0);
@@ -22,22 +23,30 @@ const Top = (props) => {
       </div>
     );
   }
-  return (
-    <div className="third">
-      <p>You are in: {props.info.country}</p>
-      <form onSubmit={handleSubmit}>
-        <p>Please enter an amount of money in your local currency: </p>
-        <input
-          className="input"
-          type="number"
-          name="input"
-          value={inputField}
-          onChange={handleInput}
+  if (props.info.country) {
+    return (
+      <div className="third">
+        <img
+          src={`https://www.countryflags.io/${
+            codes[props.info.country.replace(/\s/g, "_")]
+          }/flat/64.png`}
         />
-      </form>
-      <input type="submit" value="Submit" onClick={() => handleSubmit()} />
-    </div>
-  );
+        <p>You are in: {props.info.country}</p>
+        <form onSubmit={handleSubmit}>
+          <p>Please enter an amount of money in your local currency: </p>
+          <input
+            className="input"
+            type="number"
+            name="input"
+            value={inputField}
+            onChange={handleInput}
+          />
+        </form>
+        <input type="submit" value="Submit" onClick={() => handleSubmit()} />
+      </div>
+    );
+  }
+  return <div></div>;
 };
 
 const mapStateToProps = (state) => {
