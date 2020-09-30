@@ -1,4 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project uses the following resources:
+-Yarn
+-React
+-Redux
+-Axios
+-https://jsonip.com/ (for getting the user's IP)
+-https://www.countryflags.io/ (API for flag images)
+
+mostly functional, some styling considerations have been made beyond the MVP (images)
 
 ## Available Scripts
 
