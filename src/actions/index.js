@@ -12,12 +12,13 @@ export const setInput = (input) => (dispatch) => {
 export const fetchItems = () => (dispatch) => {
   let info;
   let ip;
-
+  //gets user's IP using third party system
   dispatch({ type: START_FETCHING });
   axios.get("https://jsonip.com/").then((response) => {
     ip = response.data.ip;
     console.log(ip);
     axios
+      //default server address
       .post("http://localhost:5000/ip", { ip: ip })
       .then(
         (response) => (

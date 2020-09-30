@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchItems, setInput } from "../actions/index";
 
+//pretty much explained in top.js
 const Middle = (props) => {
   if (props.input == 0) {
     return (

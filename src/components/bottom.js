@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { fetchItems, setInput } from "../actions/index";
 import { codes } from "../assets/countryCodes.js";
 
+//pretty much explained in top.js
 const Bottom = (props) => {
   if (props.isFetching) {
     return (

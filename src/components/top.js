@@ -16,6 +16,7 @@ const Top = (props) => {
     // e.preventDefault();
     props.setInput(inputField);
   };
+  //loading screen
   if (props.isFetching) {
     return (
       <div className="third">
@@ -23,9 +24,11 @@ const Top = (props) => {
       </div>
     );
   }
+  //makes sure country is in store to prevent error
   if (props.info.country) {
     return (
       <div className="third">
+        {/* added some flags of the country using a free API and a table to relate country names to country codes */}
         <img
           src={`https://www.countryflags.io/${
             codes[props.info.country.replace(/\s/g, "_")]
@@ -46,6 +49,7 @@ const Top = (props) => {
       </div>
     );
   }
+  //default return necesary
   return <div></div>;
 };
 
